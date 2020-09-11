@@ -3,30 +3,31 @@
     public abstract class Evaluator
     {
         private int _matchesNeeded => 3;
+        private int _amountMatches = 0;
 
-        protected int Evaluate(char[] letters)
+        protected bool Evaluate(char[] letters)
         {
-            var amountMatches = 0;
-
             for (int i = 0; i < letters.Length - 1; i++)
             {
-                if (letters[i].Equals(letters[i + 1]))
-                {
-                    amountMatches += 1;
-                }
-                else
-                {
-                    //Si encuentra 4 coincidencias corta la iteración para que no siga.
-                    if (amountMatches == _matchesNeeded)
-                    {
-                        return 1;
-                    }
+                var nextColumn = i + 1;
 
-                    amountMatches = 0;
+                _amountMatches = letters[i].Equals(letters[nextColumn]) 
+                    ? IncrementAmountMatches() 
+                    : 0;
+
+                //Si encuentra 4 coincidencias corta la iteración para que no siga.
+                if (_amountMatches == _matchesNeeded)
+                {
+                    return true;
                 }
             }
 
-            return 0;
+            return false;
+        }
+
+        private int IncrementAmountMatches()
+        {
+            return ++_amountMatches;
         }
     }
 }

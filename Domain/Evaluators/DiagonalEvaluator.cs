@@ -26,7 +26,7 @@ namespace Domain.Evaluators
                 lettersToCompare += letters[i];
             }
 
-            var totalMatches = Evaluate(lettersToCompare.ToCharArray());
+            var totalMatches = Evaluate(lettersToCompare.ToCharArray()) ? 1 : 0;
 
             return totalMatches;
         }

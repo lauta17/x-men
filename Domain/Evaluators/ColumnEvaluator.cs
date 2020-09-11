@@ -27,7 +27,7 @@ namespace Domain.Evaluators
 
             for (int i = 0; i < invertedDna.Length ; i++)
             {
-                matches += Evaluate(invertedDna[i].ToCharArray());
+                matches += Evaluate(invertedDna[i].ToCharArray()) ? 1 : 0;
             }
 
             return matches;
