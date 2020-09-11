@@ -7,27 +7,17 @@ namespace Domain.Evaluators
     {
         public int Contains(string[] dna)
         {
-            //ATGCGA
-            //CAGTGC
-            //TTATGT
-            //AGAAGG
-            //CCCCTA
-            //TCACTG
             var matches = 0;
-            var invertedDna = new string[dna.Length];
-
             for (int i = 0; i < dna.Length; i++)
             {
-                var letters = dna[i].ToCharArray();
-                for (int j = 0; j < letters.Length; j++)
-                {
-                    invertedDna[j] += letters[j];
-                }
-            }
+                var invertedDna = string.Empty;
 
-            for (int i = 0; i < invertedDna.Length ; i++)
-            {
-                matches += Evaluate(invertedDna[i].ToCharArray()) ? 1 : 0;
+                for (int j = 0; j < dna.Length; j++)
+                {
+                    invertedDna += dna[j].ToCharArray()[i];
+                }
+
+                matches += Evaluate(invertedDna.ToCharArray()) ? 1 : 0;
             }
 
             return matches;

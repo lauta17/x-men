@@ -25,10 +25,5 @@ namespace Domain.Evaluators
 
             return totalMatches;
         }
-
-        private bool Compare(char a, char b)
-        {
-            return a == b;
-        }
     }
 }
