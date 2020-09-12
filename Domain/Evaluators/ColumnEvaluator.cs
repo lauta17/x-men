@@ -14,10 +14,10 @@ namespace Domain.Evaluators
 
                 for (int j = 0; j < dna.Length; j++)
                 {
-                    invertedDna += dna[j].ToCharArray()[i];
+                    invertedDna += dna[j][i];
                 }
 
-                matches += Evaluate(invertedDna.ToCharArray()) ? 1 : 0;
+                matches += Evaluate(invertedDna) ? 1 : 0;
             }
 
             return matches;

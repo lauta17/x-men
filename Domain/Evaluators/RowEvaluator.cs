@@ -10,7 +10,7 @@ namespace Domain.Evaluators
 
             for (int i = 0; i < dna.Length; i++)
             {
-                var letters = dna[i].ToCharArray();
+                var letters = dna[i];
 
                 totalMatches += Evaluate(letters) ? 1 : 0;
             }

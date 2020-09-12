@@ -6,7 +6,8 @@
         private int _matchesNeeded => 3;
         private int _amountMatches = 0;
 
-        protected bool Evaluate(char[] letters)
+        //Evalua la secuencia de las letras de un array.
+        protected bool Evaluate(string letters)
         {
             if (letters.Length < _lettersNeeded)
             {
@@ -18,30 +19,10 @@
                 var nextColumn = i + 1;
 
                 _amountMatches = letters[i].Equals(letters[nextColumn]) 
-                    ? IncrementAmountMatches() 
-                    : 0;
+                                    ? IncrementAmountMatches() 
+                                    : 0;
 
-                //Si encuentra 4 coincidencias corta la iteración para que no siga.
-                if (_amountMatches == _matchesNeeded)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        protected bool Evaluate(string letters)
-        {
-            for (int i = 0; i < letters.Length - 1; i++)
-            {
-                var nextColumn = i + 1;
-
-                _amountMatches = letters[i].Equals(letters[nextColumn])
-                    ? IncrementAmountMatches()
-                    : 0;
-
-                //Si encuentra 4 coincidencias corta la iteración para que no siga.
+                //Si encuentra secuencia de 4 letras corta con la iteracion.
                 if (_amountMatches == _matchesNeeded)
                 {
                     return true;
