@@ -1,5 +1,4 @@
 ﻿using Domain.Interfaces;
-using System;
 
 namespace Domain.Evaluators
 {
@@ -8,6 +7,7 @@ namespace Domain.Evaluators
         public int Contains(string[] dna)
         {
             var matches = 0;
+
             for (int i = 0; i < dna.Length; i++)
             {
                 var invertedDna = string.Empty;

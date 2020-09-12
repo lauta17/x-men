@@ -1,17 +1,9 @@
 ﻿using Domain.Interfaces;
-using System;
 
 namespace Domain.Evaluators
 {
     public class RowEvaluator : Evaluator, IDnaCondition
     {
-        //ATGCGA
-        //CAGTGC
-        //TTATGT
-        //AGAAGG
-        //CCCCTA
-        //TCACTG
-
         public int Contains(string[] dna)
         {
             var totalMatches = 0;
