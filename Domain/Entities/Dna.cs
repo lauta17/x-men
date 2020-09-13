@@ -5,6 +5,7 @@ namespace Domain.Entities
 {
     public abstract class Dna
     {
+        private string AllowedLetters => "ATCG";
         public string[] Description { get; set; }
 
         public void IsValid()
@@ -12,6 +13,13 @@ namespace Domain.Entities
             if (!Description.ToList().All(row => row.Length == Description.Length))
             {
                 throw new ArgumentException("DnaFormatIsInvalid");
+            }
+
+            if ((!Description.ToList()
+                        .All(row => row
+                            .All(rowElem => AllowedLetters.Contains(rowElem)))))
+            {
+                throw new ArgumentException("DnaNotContainInvalidLetters");
             }
         }
     }
