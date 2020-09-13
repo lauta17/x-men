@@ -1,14 +1,18 @@
-﻿namespace Domain.Entities
+﻿using System;
+using System.Linq;
+
+namespace Domain.Entities
 {
-    public class Dna
+    public abstract class Dna
     {
-        public int Id { get; set; }
-        public string Description { get; set; }
-        public bool IsMutant { get; set; }
+        public string[] Description { get; set; }
 
-        public Dna(string[] dna)
+        public void IsValid()
         {
-
+            if (!Description.ToList().All(row => row.Length == Description.Length))
+            {
+                throw new ArgumentException("DnaFormatIsInvalid");
+            }
         }
     }
 }

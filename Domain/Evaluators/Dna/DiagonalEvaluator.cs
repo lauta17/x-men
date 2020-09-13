@@ -1,6 +1,6 @@
 ﻿using Domain.Interfaces;
 
-namespace Domain.Evaluators
+namespace Domain.Evaluators.Dna
 {
     public class DiagonalEvaluator : Evaluator, IDnaCondition
     {
@@ -10,17 +10,17 @@ namespace Domain.Evaluators
             int totalMatches = 0;
 
             //Valido las diagonales moviendome en Y
-            for (int i = 0; i < maxLength; i++)
+            for (int row = 0; row < maxLength; row++)
             {
-                var letters = GetDiagonalLettersToLeft(dna, row:i, column:0);
+                var letters = GetDiagonalLettersToLeft(dna, row, column:0);
 
                 totalMatches += Evaluate(letters) ? 1 : 0;
             }
 
             //Valido las diagonales moviendome en X
-            for (int i = 1; i < maxLength; i++)
+            for (int col = 1; col < maxLength; col++)
             {
-                var letters = GetDiagonalLettersToRight(dna, row:0, column:i);
+                var letters = GetDiagonalLettersToRight(dna, row:0, col);
 
                 totalMatches += Evaluate(letters) ? 1 : 0;
             }

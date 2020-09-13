@@ -1,7 +1,14 @@
 ﻿namespace Domain.Entities
 {
-    public class HumanDna
+    public class HumanDna : Dna
     {
-        public string[] Dna { get; set; }
+        public bool IsMutant { get; set; }
+
+        public HumanDna(string[] dna)
+        {
+            Description = dna;
+
+            base.IsValid();
+        }
     }
 }

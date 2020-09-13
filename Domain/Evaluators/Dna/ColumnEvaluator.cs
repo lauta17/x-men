@@ -1,6 +1,6 @@
 ﻿using Domain.Interfaces;
 
-namespace Domain.Evaluators
+namespace Domain.Evaluators.Dna
 {
     public class ColumnEvaluator : Evaluator, IDnaCondition
     {
@@ -8,13 +8,13 @@ namespace Domain.Evaluators
         {
             var matches = 0;
 
-            for (int i = 0; i < dna.Length; i++)
+            for (int col = 0; col < dna.Length; col++)
             {
                 var invertedDna = string.Empty;
 
-                for (int j = 0; j < dna.Length; j++)
+                for (int row = 0; row < dna.Length; row++)
                 {
-                    invertedDna += dna[j][i];
+                    invertedDna += dna[row][col];
                 }
 
                 matches += Evaluate(invertedDna) ? 1 : 0;

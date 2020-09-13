@@ -1,6 +1,6 @@
 ﻿using Domain.Interfaces;
 
-namespace Domain.Evaluators
+namespace Domain.Evaluators.Dna
 {
     public class AntiDiagonalEvaluator : Evaluator, IDnaCondition
     {
@@ -31,9 +31,10 @@ namespace Domain.Evaluators
 
         private string GetInvertedDiagonalToLeft(string[] dna, int row, int column)
         {
+            const int firstColumn = 0;
             var letters = string.Empty;
 
-            while (column >= 0)
+            while (column >= firstColumn)
             {
                 letters += dna[row][column];
 
@@ -47,8 +48,9 @@ namespace Domain.Evaluators
         private string GetInvertedDiagonalToRight(string[] dna, int row, int column)
         {
             var letters = string.Empty;
+            const int firstColumn = 0;
 
-            while (column >= 0 && row < dna.Length)
+            while (column >= firstColumn && row < dna.Length)
             {
                 letters += dna[row][column];
 

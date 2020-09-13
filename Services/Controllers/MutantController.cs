@@ -11,9 +11,9 @@ namespace Services.Controllers
     [Route("[controller]")]
     public class MutantController : ControllerBase
     {
-        private readonly IDnaEvaluator _dnaEvaluator;
+        private readonly IDnaEvaluatorService _dnaEvaluator;
 
-        public MutantController(IDnaEvaluator dnaEvaluator)
+        public MutantController(IDnaEvaluatorService dnaEvaluator)
         {
             _dnaEvaluator = dnaEvaluator;
         }
@@ -23,7 +23,7 @@ namespace Services.Controllers
         {
             try
             {
-                var isMutant = await _dnaEvaluator.IsMutant(dnaDto.Dna);
+                var isMutant = await _dnaEvaluator.Evaluate(dnaDto.Dna);
 
                 return Ok();
             }

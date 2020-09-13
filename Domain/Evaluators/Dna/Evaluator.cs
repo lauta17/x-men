@@ -1,4 +1,4 @@
-﻿namespace Domain.Evaluators
+﻿namespace Domain.Evaluators.Dna
 {
     public abstract class Evaluator
     {
@@ -6,7 +6,7 @@
         private int _matchesNeeded => 3;
         private int _amountMatches = 0;
 
-        //Evalua la secuencia de las letras de un array.
+        //Evalua la secuencia de las letras de un string.
         protected bool Evaluate(string letters)
         {
             if (letters.Length < _lettersNeeded)
@@ -14,11 +14,11 @@
                 return false;
             }
 
-            for (int i = 0; i < letters.Length - 1; i++)
+            for (int col = 0; col < letters.Length - 1; col++)
             {
-                var nextColumn = i + 1;
+                var nextColumn = col + 1;
 
-                _amountMatches = letters[i].Equals(letters[nextColumn]) 
+                _amountMatches = letters[col].Equals(letters[nextColumn]) 
                                     ? IncrementAmountMatches() 
                                     : 0;
 

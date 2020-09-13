@@ -1,24 +1,28 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Domain.Builders
 {
     public class DnaBuilder : IDnaBuilder
     {
-        public DnaBuilder(string[] dna)
+        private Dna _dna { get; set; }
+        private readonly IDnaFactory _dnaFactory;
+
+        public DnaBuilder(IDnaFactory dnaFactory)
         {
-            if (!IsValid(dna))
-            {
-                throw new ArgumentException("DnaStructureIsNotValid");
-            }
+            _dnaFactory = dnaFactory;
         }
 
-        private bool IsValid(string[] dna)
+        public IDnaBuilder AddDna(string[] dna, DnaType dnaType)
         {
-            return dna.Length < 4 ? false : true;
+            _dna = _dnaFactory.Create(dna, dnaType);
+
+            return this;
+        }
+
+        public Dna Build()
+        {
+            return _dna;
         }
     }
 }
