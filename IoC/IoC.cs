@@ -18,6 +18,7 @@ namespace IoC
             services.AddTransient<IDnaCondition, ColumnEvaluator>();
             services.AddTransient<IDnaCondition, DiagonalEvaluator>();
             services.AddTransient<IDnaCondition, RowEvaluator>();
+            services.AddTransient<IDnaCondition, AntiDiagonalEvaluator>();
 
             services.AddTransient<IDnaRepository, DnaRepository>();
         }
