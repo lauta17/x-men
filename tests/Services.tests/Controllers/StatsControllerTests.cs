@@ -2,6 +2,7 @@
 using DB.Interfaces;
 using Domain.Entities;
 using Services.Controllers;
+using System;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -28,7 +29,7 @@ namespace Services.Tests.Controllers
                 CountMutantDna = 2
             };
 
-            var ratio = (decimal)summary.CountMutantDna / summary.CountHumanDna;
+            var ratio = Math.Round((decimal)summary.CountMutantDna / summary.CountHumanDna);
 
             var mockDnaRepository = _autoMoqer.GetMock<IDnaRepository>();
             mockDnaRepository.Setup(x => x.GetSummary())

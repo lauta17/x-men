@@ -7,8 +7,9 @@ namespace Domain.Evaluators.Dna
         public int Contains(string[] dna)
         {
             var totalMatches = 0;
+            var maxLength = dna.Length;
 
-            for (int row = 0; row < dna.Length; row++)
+            for (int row = 0; row < maxLength; row++)
             {
                 var letters = dna[row];
 
