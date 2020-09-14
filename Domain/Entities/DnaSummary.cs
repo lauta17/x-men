@@ -4,13 +4,13 @@
     {
         public long CountHumanDna { get; set; }
         public long CountMutantDna { get; set; }
-        public decimal Ratio
-        {
-            get {
-                return CountHumanDna > 0 
-                        ? (decimal)CountMutantDna / CountHumanDna
-                        : 0;
-            }
-        }
+        public decimal Ratio { get; set; }
+        //{
+        //    get {
+        //        return CountHumanDna > 0 
+        //                ? (decimal)CountMutantDna / CountHumanDna
+        //                : 0;
+        //    }
+        //}
     }
 }

@@ -4,6 +4,7 @@ using Domain.Entities;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Threading.Tasks;
+using System;
 
 namespace DB.Repositories
 {
@@ -32,10 +33,13 @@ namespace DB.Repositories
 
             await Task.WhenAll(humansCountTask, mutantsCountTask);
 
+            var ratio = Math.Round((decimal)mutantsCountTask.Result / humansCountTask.Result, 2);
+
             return new DnaSummary
             {
                 CountHumanDna = humansCountTask.Result,
-                CountMutantDna = mutantsCountTask.Result
+                CountMutantDna = mutantsCountTask.Result,
+                Ratio = ratio
             };
         }
     }
