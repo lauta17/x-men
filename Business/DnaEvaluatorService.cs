@@ -25,12 +25,11 @@ namespace Application
         public async Task<bool> Evaluate(string[] dna)
         {
             var humanDna = (HumanDna)_dnaBuilder.AddDna(dna, DnaType.Human).Build();
-
             humanDna.IsMutant = _dnaEvaluator.IsMutant(humanDna);
 
-            //await _dnaRepository.Insert();
+            await _dnaRepository.Insert(humanDna);
 
-            return await Task.FromResult(humanDna.IsMutant);
+            return humanDna.IsMutant;
         }
     }
 }

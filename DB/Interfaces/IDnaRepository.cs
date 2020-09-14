@@ -1,9 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using Domain.Entities;
+using System.Threading.Tasks;
 
 namespace DB.Interfaces
 {
     public interface IDnaRepository
     {
-        Task<int> Insert();
+        Task Insert(HumanDna dna);
+        Task<DnaSummary> GetSummary();
     }
 }

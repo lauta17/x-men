@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DB.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using Services.Dtos;
+using System.Threading.Tasks;
 
 namespace Services.Controllers
 {
@@ -6,10 +9,24 @@ namespace Services.Controllers
     [Route("[controller]")]
     public class StatsController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult<string> Get()
+        private readonly IDnaRepository _dnaRepository;
+
+        public StatsController(IDnaRepository dnaRepository)
         {
-            return Ok("asd");
+            _dnaRepository = dnaRepository;
+        }
+
+        [HttpGet]
+        public async Task<DnaSummaryResponse> Get()
+        {
+            var summary = await _dnaRepository.GetSummary();
+
+            return new DnaSummaryResponse
+            {
+                count_human_dna = summary.CountHumanDna,
+                count_mutant_dna = summary.CountMutantDna,
+                ratio = summary.Ratio
+            };
         }
     }
 }

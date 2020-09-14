@@ -19,7 +19,7 @@ namespace Services.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody]DnaDto dnaDto)
+        public async Task<ActionResult> Post([FromBody]DnaRequest dnaDto)
         {
             try
             {
@@ -35,12 +35,6 @@ namespace Services.Controllers
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
-        }
-
-        [HttpGet]
-        public string Get()
-        {
-            return "hola mundo";
         }
     }
 }

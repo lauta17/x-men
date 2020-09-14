@@ -1,6 +1,6 @@
 ﻿namespace Services.Dtos
 {
-    public class DnaDto
+    public class DnaRequest
     {
         public string[] Dna { get; set; }
     }
