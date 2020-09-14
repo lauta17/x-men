@@ -19,16 +19,6 @@ namespace Domain.Factories
 
         public Dna Create(string[] dna, DnaType dnaType)
         {
-            //_dictionary.Add(DnaType.Human, () => new HumanDna(dna));
-
-
-            //_dictionarys.Add(DnaType.Human, new Action(() => new HumanDna(dna)));
-
-            //_dictionarys.Add(DnaType.Human, () => new HumanDna(dna));
-
-            var r = _dictionary[DnaType.Human];
-            var s = r.Invoke(dna);
-
             return _dictionary[dnaType].Invoke(dna);
         }
     }

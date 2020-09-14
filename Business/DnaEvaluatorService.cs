@@ -2,8 +2,6 @@
 using DB.Interfaces;
 using Domain.Entities;
 using Domain.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Threading.Tasks;
 
 namespace Application

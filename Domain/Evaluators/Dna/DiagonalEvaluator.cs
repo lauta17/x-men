@@ -1,4 +1,5 @@
 ﻿using Domain.Interfaces;
+using System;
 
 namespace Domain.Evaluators.Dna
 {
@@ -18,9 +19,9 @@ namespace Domain.Evaluators.Dna
             }
 
             //Valido las diagonales moviendome en X
-            for (int col = 1; col < maxLength; col++)
+            for (int column = 1; column < maxLength; column++)
             {
-                var letters = GetDiagonalLettersToRight(dna, row:0, col);
+                var letters = GetDiagonalLettersToRight(dna, row:0, column);
 
                 totalMatches += Evaluate(letters) ? 1 : 0;
             }

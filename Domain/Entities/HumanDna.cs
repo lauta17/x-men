@@ -8,7 +8,7 @@
         {
             Description = dna;
 
-            base.IsValid();
+            IsValid();
         }
     }
 }

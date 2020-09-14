@@ -8,7 +8,7 @@ namespace Domain.Entities
         private string AllowedLetters => "ATCG";
         public string[] Description { get; set; }
 
-        public void IsValid()
+        protected virtual void IsValid()
         {
             if (!Description.ToList().All(row => row.Length == Description.Length))
             {
