@@ -4,7 +4,7 @@ namespace Domain.Evaluators.Dna
 {
     public class RowEvaluator : Evaluator, IDnaCondition
     {
-        public int Contains(string[] dna)
+        public int GetCoincidences(string[] dna)
         {
             var totalMatches = 0;
             var maxLength = dna.Length;

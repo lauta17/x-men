@@ -8,5 +8,9 @@
     "solution-stack" : "64bit Windows Server 2019 v2.5.9 running IIS 10.0",
     "iis-website"    : "Default Web Site",
     "app-path"       : "/",
-    "enable-xray"    : false
+    "enable-xray"    : false,
+    "cname"          : "xmen-prod",
+    "environment-type" : "LoadBalanced",
+    "instance-type"    : "t3a.medium",
+    "key-pair"         : ""
 }

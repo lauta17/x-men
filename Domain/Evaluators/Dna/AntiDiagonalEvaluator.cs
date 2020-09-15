@@ -4,7 +4,7 @@ namespace Domain.Evaluators.Dna
 {
     public class AntiDiagonalEvaluator : Evaluator, IDnaCondition
     {
-        public int Contains(string[] dna)
+        public int GetCoincidences(string[] dna)
         {
             int maxLength = dna.Length;
             int totalMatches = 0;

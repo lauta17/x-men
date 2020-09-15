@@ -21,7 +21,7 @@ namespace Domain.Evaluators
 
             foreach (var conditions in _serviceProvider.GetServices<IDnaCondition>())
             {
-                amountMatches += conditions.Contains(humanDna.Description);
+                amountMatches += conditions.GetCoincidences(humanDna.Description);
 
                 if (amountMatches >= _matchesNeededToBeMutant)
                 {

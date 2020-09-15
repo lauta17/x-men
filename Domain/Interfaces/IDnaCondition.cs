@@ -2,6 +2,6 @@
 {
     public interface IDnaCondition
     {
-        public int Contains(string [] dna);
+        public int GetCoincidences(string [] dna);
     }
 }

@@ -4,11 +4,12 @@ namespace Domain.Evaluators.Dna
 {
     public class ColumnEvaluator : Evaluator, IDnaCondition
     {
-        public int Contains(string[] dna)
+        public int GetCoincidences(string[] dna)
         {
             var matches = 0;
+            var maxLength = dna.Length;
 
-            for (int col = 0; col < dna.Length; col++)
+            for (int col = 0; col < maxLength; col++)
             {
                 var invertedDna = string.Empty;
 

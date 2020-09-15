@@ -23,7 +23,7 @@ namespace Domain.Tests.Evaluators.Dna
             var dna = new string[] { "ATGCGA", "CAGTAC", "TTAAGT", "AGAAGG", "CCCCTA", "TCACTG" };
 
             //ACT
-            var result = _dnaCondition.Contains(dna);
+            var result = _dnaCondition.GetCoincidences(dna);
 
             //ASSERT
             Assert.True(result == 1);
@@ -36,7 +36,7 @@ namespace Domain.Tests.Evaluators.Dna
             var dna = new string[] { "ATGCGA", "CAGTGC", "TTATTT", "AGACGG", "GCGTCA", "TCACTG" };
 
             //ACT
-            var result = _dnaCondition.Contains(dna);
+            var result = _dnaCondition.GetCoincidences(dna);
 
             //ASSERT
             Assert.True(result == 0);

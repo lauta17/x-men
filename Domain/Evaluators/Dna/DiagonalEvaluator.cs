@@ -5,7 +5,7 @@ namespace Domain.Evaluators.Dna
 {
     public class DiagonalEvaluator : Evaluator, IDnaCondition
     {
-        public int Contains(string[] dna)
+        public int GetCoincidences(string[] dna)
         {
             int maxLength = dna.Length;
             int totalMatches = 0;
@@ -28,13 +28,6 @@ namespace Domain.Evaluators.Dna
 
             return totalMatches;
         }
-
-        //A T G C G A
-        //C A G T G C
-        //T T A T G T
-        //A G A A G G
-        //C C C C T A
-        //T C A C T G
 
         #region Private Methods
 
