@@ -121,4 +121,5 @@ siguiente formato:
 
       Dotnet 3.1
       MongoDB Atlas DataBase
-      XUnit para unit test
+      XUnit unit testing
+      Hosteado en AWS Elastic Beanstalk 
