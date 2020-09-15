@@ -7,7 +7,9 @@ Te ha contratado a ti para que desarrolles un proyecto que detecte si un
 humano es mutante basándose en su secuencia de ADN.
 
 Para eso te ha pedido crear un programa con un método o función con la siguiente firma (En
-alguno de los siguiente lenguajes: Java / Golang / C-C++ / Javascript (node) / Python / Ruby):
+alguno de los siguiente lenguajes: 
+      
+● Java / Golang / C-C++ / Javascript (node) / Python / Ruby):
 
       boolean isMutant(String[] dna); // Ejemplo Java
 En donde recibirás como parámetro un array de Strings que representan cada fila de una tabla
@@ -82,3 +84,41 @@ siguiente formato:
   ● Instrucciones de cómo ejecutar el programa o la API. (Para Nivel 2 y 3: En README de github).
   
   ● URL de la API (Nivel 2 y 3).
+
+# Intrucciones
+
+1. Para utilizar de forma local debemos bajar el codigo de GitHub.
+2. Descargar la sdk de netcore 3.1 https://dotnet.microsoft.com/download/dotnet-core/3.1
+3. Abrir powershell y ejecutar los siguientes comandos:
+
+       $ dotnet build .
+       $ dotnet publish -c Release
+
+4. Hostear la web api en el IIS o ejecutar:
+      
+       $ docker build .
+       $ docker run .
+
+5. Podemos utilizar las sigueintes llamadas http:
+
+       GET url/stats/ --> Response {“count_mutant_dna”:40, “count_human_dna”:100: “ratio”:0.4}
+       
+       POST url/mutant/ --> Request { “dna”:["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"] }
+
+# Arquitectura del proyecto
+
+ ● Services: Capa encargada de contener los controladores para recibir las solicitudes http.
+ 
+ ● Application: Se encarga de orquestar la logica de negocio y las llamadas a los repositorios.
+ 
+ ● Domain: Contiene la logica y entidades de negocio.
+ 
+ ● IoC: Contiene las inyecciones de dependencias.
+ 
+ ● DB: Contiene el acceso a la base de datos.
+
+# Tecnologias utilizadas
+
+      Dotnet 3.1
+      MongoDB Atlas DataBase
+      XUnit para unit test
