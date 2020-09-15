@@ -79,11 +79,11 @@ siguiente formato:
 
 # Entregar:
 
-  ● Código Fuente (Para Nivel 2 y 3: En repositorio github).
+  ● Código Fuente en repositorio github.
   
-  ● Instrucciones de cómo ejecutar el programa o la API. (Para Nivel 2 y 3: En README de github).
+  ● Instrucciones de cómo ejecutar el programa o la API. (README de github).
   
-  ● URL de la API (Nivel 2 y 3).
+  ● URL de la API.
 
 # Intrucciones
 
@@ -107,15 +107,15 @@ siguiente formato:
 
 # Arquitectura del proyecto
 
- ● Services: Capa encargada de contener los controladores para recibir las solicitudes http.
+  ● Services: Capa encargada de contener los controladores para recibir las solicitudes http.
  
- ● Application: Se encarga de orquestar la logica de negocio y las llamadas a los repositorios.
+  ● Application: Se encarga de orquestar la logica de negocio y las llamadas a los repositorios.
  
- ● Domain: Contiene la logica y entidades de negocio.
+  ● Domain: Contiene la logica y entidades de negocio.
  
- ● IoC: Contiene las inyecciones de dependencias.
+  ● IoC: Contiene las inyecciones de dependencias.
  
- ● DB: Contiene el acceso a la base de datos.
+  ● DB: Contiene el acceso a la base de datos.
 
 # Tecnologias utilizadas
 
